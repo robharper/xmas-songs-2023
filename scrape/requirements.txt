@@ -1,0 +1,4 @@
+functions-framework
+google_cloud_bigquery==3.13.0
+google-cloud-storage==2.13.0
+requests==2.31.0
