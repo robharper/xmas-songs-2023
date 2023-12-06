@@ -1,0 +1,39 @@
+<script>
+  function findMax(list, keys) {
+    return keys.reduce((acc, key) => {
+      const keyMax = list.reduce((acc, item) => item[key] > acc ? item[key] : acc, 0);
+      return keyMax > acc ? keyMax : acc;
+    }, 0);
+  }
+
+  function addBar(list, max, key, outKey) {
+    if (max == null) {
+      max = findMax(list, [key]);
+    }
+
+    // Add pct
+    list.forEach(item => {
+      item[outKey] = item[key] / max * 100;
+    });
+  }
+
+  function addRankChange(list, rank1, rank2, outKey) {
+    list.forEach(item => {
+      item[outKey] = item[rank1] - item[rank2];
+    });
+  }
+
+  function preprocess() {
+    this.songs.forEach(song => {
+      song.todayRank = parseInt(song.todayRank, 10);
+      song.todayPlays = parseInt(song.todayPlays, 10);
+      song.allRank = parseInt(song.allRank, 10);
+      song.avgPlays = Math.round(parseInt(song.avgPlays, 10));
+
+      song.samePlays = Math.min(song.todayPlays, song.avgPlays);
+      song.maxPlays = Math.max(song.todayPlays, song.avgPlays);
+    });
+
+    addRankChange(this.songs, 'todayRank', 'allRank', 'rankChange');
+  }
+</script>

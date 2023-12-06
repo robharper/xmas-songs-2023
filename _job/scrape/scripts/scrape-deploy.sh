@@ -7,4 +7,4 @@ gcloud functions deploy xmas-scrape-scraper \
 --entry-point=scrape \
 --trigger-topic=xmas-scrape_scrape \
 --service-account=xmas-scraper@xmas-scrape.iam.gserviceaccount.com \
---env-vars-file .env.yaml
+--env-vars-file ./.env.yaml

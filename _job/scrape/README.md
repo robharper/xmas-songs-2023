@@ -10,14 +10,21 @@ gcloud iam service-accounts create xmas-scraper --project xmas-scrape
 
 Give it permissions:
 ```
-# Allow it to upload to Cloud Storage
+# Allow it to upload to and download from Cloud Storage
 gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/storage.objectCreator
+gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/storage.objectViewer
 
 # Allow it to invoke a Cloud Function
 gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/run.invoker
 
 # Allow it to run BigQuery jobs
 gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/bigquery.jobUser
+
+gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/eventarc.admin
+
+# Grant publisher access to the default service account for the bucket
+SERVICE_ACCOUNT="$(gsutil kms serviceaccount -p xmas-scrape)"
+gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:${SERVICE_ACCOUNT}" --role='roles/pubsub.publisher'
 ```
 
 

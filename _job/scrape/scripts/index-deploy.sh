@@ -1,0 +1,11 @@
+gcloud functions deploy xmas-scrape-indexer \
+--project=xmas-scrape \
+--gen2 \
+--runtime=python311 \
+--region=northamerica-northeast2 \
+--source=. \
+--entry-point=index \
+--trigger-bucket=xmas-scrape-data \
+--retry \
+--service-account=xmas-scraper@xmas-scrape.iam.gserviceaccount.com \
+--env-vars-file ./.env.yaml
