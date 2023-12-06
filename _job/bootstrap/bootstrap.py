@@ -22,7 +22,6 @@ except Conflict as e:
 
 
 # Create the table
-table_id = f"{dataset_id}.{env['TABLE_ID']}"
 
 """
 Example record:
@@ -43,6 +42,7 @@ updated_at: 1700334669 (number)
 schema = [
     bigquery.SchemaField("timestamp", "INT64", mode="REQUIRED"),
     bigquery.SchemaField("scrape_timestamp", "INT64", mode="REQUIRED"),
+    bigquery.SchemaField("ingest_timestamp", "INT64", mode="REQUIRED"),
 
     bigquery.SchemaField("artist", "STRING", mode="REQUIRED"),
     bigquery.SchemaField("play_id", "STRING", mode="REQUIRED"),
@@ -55,9 +55,13 @@ schema = [
     bigquery.SchemaField("spotify", "STRING", mode="NULLABLE"),
 ]
 
-table = bigquery.Table(table_id, schema=schema)
-try:
-    table = client.create_table(table)  # Make an API request.
-    print(f"Created table {table_id}")
-except Conflict as e:
-    print(f"Table {table_id} already exists")
+for table_id in [
+    f"{dataset_id}.{env['INGEST_TABLE_ID']}",
+    f"{dataset_id}.{env['MAIN_TABLE_ID']}"
+]:
+    table = bigquery.Table(table_id, schema=schema)
+    try:
+        table = client.create_table(table)  # Make an API request.
+        print(f"Created table {table_id}")
+    except Conflict as e:
+        print(f"Table {table_id} already exists")
