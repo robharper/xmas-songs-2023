@@ -1,0 +1,1 @@
+gcloud pubsub topics publish xmas-scrape_scrape --message="unused" --project=xmas-scrape
