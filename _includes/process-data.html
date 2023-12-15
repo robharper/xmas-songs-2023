@@ -24,16 +24,11 @@
   }
 
   function preprocess() {
-    this.songs.forEach(song => {
-      song.todayRank = parseInt(song.todayRank, 10);
-      song.todayPlays = parseInt(song.todayPlays, 10);
-      song.allRank = parseInt(song.allRank, 10);
-      song.avgPlays = Math.round(parseInt(song.avgPlays, 10));
-
-      song.samePlays = Math.min(song.todayPlays, song.avgPlays);
-      song.maxPlays = Math.max(song.todayPlays, song.avgPlays);
+    this.today.forEach(s => {
+      s.avgPlays = Math.round(s.avgPlays);
     });
-
-    addRankChange(this.songs, 'todayRank', 'allRank', 'rankChange');
+    this.all.forEach(s => {
+      s.avgPlays = Math.round(s.avgPlays);
+    });
   }
 </script>

@@ -1,0 +1,101 @@
+<script>
+  const pageData = {{ page.data | jsonify }};
+
+  pageData.today.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
+  pageData.all.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
+
+  pageData.ranks = pageData.today.map((t, idx) => {
+    const allSong = pageData.all.find(s => s.song_id === t.song_id);
+    return {
+      song_id: t.song_id,
+      todayRank: t.simpleRank - 1,
+      allRank: allSong ? allSong.simpleRank - 1 : 51
+    };
+  });
+</script>
+
+<main x-data='pageData' x-init="preprocess">
+  <section>
+    <div>
+      <h1 class="font-extrabold">Today</h1>
+
+      <div class="grid grid-cols-[1fr_1fr_1fr] gap-2">
+
+        <div>
+          <template x-for="song in today">
+            <div class="mb-4 relative h-16">
+              <span class="absolute z-0 top-0 -left-4 text-5xl font-black text-stone-300" x-text="song.simpleRank"></span>
+
+              <div class="flex w-100 text-right">
+                <div class="relative flex-1">
+                  <h2 x-text="song.title" class="text-bold"></h2>
+                  <h3 x-text="song.artist" class="text-stone-500 text-sm"></h3>
+                </div>
+                <span class="flex-none w-8" x-text="song.plays"></span>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div id="slope-graph"></div>
+
+        <div>
+          <template x-for="song in all">
+            <div class="mb-4 relative h-16">
+              <span class="absolute z-0 top-0 -right-4 text-5xl font-black text-stone-300" x-text="song.simpleRank"></span>
+              <div class="flex w-100 text-left">
+                <span class="flex-none w-8" x-text="song.avgPlays"></span>
+                <div class="relative flex-1">
+                  <h2 x-text="song.title" class="text-bold"></h2>
+                  <h3 x-text="song.artist" class="text-stone-500 text-sm"></h3>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const chart = d3.select("#slope-graph").append("svg")
+
+  const slopeElem = document.querySelector("#slope-graph");
+  const resizeObserver = new ResizeObserver((entries) => {
+    const width = entries[0].contentBoxSize[0].inlineSize;
+
+    // TODO Compute
+    const rowHeight = 80;
+
+    chart
+      .attr("width", width)
+      .attr("height", 50*rowHeight);
+
+    const song = chart.selectAll("line")
+      .data( pageData.ranks, d => d.song_id);
+
+    song.join("line")
+      .attr("x1", 0)
+      .attr("x2", width)
+      .attr("y1", d => d.todayRank * rowHeight + 16)
+      .attr("y2", d => d.allRank * rowHeight + 16)
+      .attr("stroke-width", 3)
+      .attr("stroke", (d) => {
+        if (d.todayRank > d.allRank) {
+          return "red";
+        } else if (d.todayRank < d.allRank) {
+          return "green";
+        } else {
+          return "grey";
+        }
+      })
+  });
+  resizeObserver.observe(slopeElem);
+
+</script>

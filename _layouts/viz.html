@@ -3,50 +3,81 @@ layout: default
 ---
 
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-{% include alpine-components.html %}
-{% include process-data.html %}
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 
-<main x-data='{{ page.data | jsonify }}' x-init="preprocess">
-  <section>
-    <div>
-      <h1 class="font-extrabold">Today vs Average Day</h1>
+<script>
+  const pageData = {{ page.data | jsonify }};
 
-      <div class="grid grid-cols-[12em_1fr_4em_4em] gap-2">
-        <div>Song</div>
-        <div></div>
-        <div>Plays (Average)</div>
-        <div>All Rank</div>
-      </div>
+  pageData.today.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+    s.avgCompPlays = Math.round(s.avgCompPlays);
+  });
+  pageData.all.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
 
-      <template x-for="song in songs">
-        <div class="mb-4">
-          <div class="grid grid-cols-[12em_1fr_4em_4em] gap-2">
-            <div class="">
-              <h2 x-text="song.song_title" class="text-bold"></h2>
-              <h3 x-text="song.example_artist" class="text-stone-500 text-sm"></h3>
-            </div>
+  const rankChanges = pageData.today.map(song => ({
+    rankChange: song.simpleRank - song.compRank,
+    playDelta: song.plays - song.avgCompPlays,
+    ...song
+  }));
 
-            <div class="space-x-1">
-              <template x-for="i in song.maxPlays">
-                <i class="fa-solid fa-gift"
-                  :class="{ 'text-red-700': i <= song.samePlays, 'text-red-500': i <= song.todayPlays, 'text-stone-300': i > song.todayPlays }"></i>
-              </template>
-            </div>
+  rankChanges.sort((a, b) => b.playDelta - a.playDelta);
+  pageData.songWinners = rankChanges.slice(0, 5).filter(s => s.playDelta > 0);
 
-            <div>
-              <span x-text="song.todayPlays"></span>
-              <span class="text-stone-400">(<span x-text="song.avgPlays"></span>)</span>
-            </div>
+  rankChanges.sort((a, b) => a.playDelta - b.playDelta);
+  pageData.songLosers = rankChanges.slice(0, 5).filter(s => s.playDelta < 0);
 
-            <div>
-              <span class="text-stone-400" x-text="song.allRank"></span>
-              <span x-data="{rank: song.rankChange}">
-                <span x-bind="RankGlyph"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </template>
-    </div>
+  pageData.today_version.forEach((song, idx) => {
+    const todaySong = pageData.today.find(s => s.song_id === song.song_id);
+    if (todaySong) {
+      song.percentOfPlays = `${Math.round(song.plays / todaySong.plays * 100)}%`;
+    } else {
+      song.percentOfPlays = `New!`;
+    }
+    song.simpleRank = idx + 1;
+  })
+</script>
+
+<main class="mt-12">
+  <header class="max-w-prose mx-auto mb-8"></section>
+    <h1 class="text-3xl font-bold text-snow-700">Christmas Playlist for {{page.date | date: "%A, %B %d"}}</h1>
+  </header>
+
+  <section x-data="{list: pageData.today}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">{{page.date | date: "%A"}}'s Top Songs</h1>
+    <p class="mb-6">
+      Here are the songs with the most plays on {{page.date | date: "%B %d, %Y"}}. Many songs have
+      multiple versions by different artists. The most played artist is shown and where there are more
+      artists with plays, we indicate this with <small>+2 more</small>.
+    </p>
+    {% include viz-top-songs.html %}
+  </section>
+
+  <section x-data="{list: pageData.songWinners}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-lg font-bold mb-2">Biggest Winners</h1>
+    <p class="mb-6">
+      The following songs had more plays than you'd hear on a typical day.
+      <span class="text-holly-600">Oh what joy...</span>
+    </p>
+    {% include viz-changes-songs.html %}
+  </section>
+
+  <section x-data="{list: pageData.songLosers}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-lg font-bold mb-2">Biggest Losers</h1>
+    <p class="mb-6">
+      A little Christmas spirit is missing today for these songs that had fewer plays than you'd normally hear.
+      <span class="text-jolly-600">If only in our dreams...</span>
+    </p>
+    {% include viz-changes-songs.html %}
+  </section>
+
+  <section x-data="{list: pageData.today_version}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-lg font-bold mb-2">Top Song Versions</h1>
+    <p class="mb-6">
+      The top played songs of the day tend to have versions from many different artists. Here are the top
+      unique song versions of the day:
+    </p>
+    {% include viz-top-songs.html %}
   </section>
 </main>

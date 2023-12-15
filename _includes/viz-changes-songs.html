@@ -1,0 +1,35 @@
+
+<div>
+  <div class="flex mb-2 text-stone-500 underline underline-offset-4">
+    <span class="flex-1">Song</span>
+    <span class="flex-none">Plays <small>(change)</small></span>
+  </div>
+  <template x-for="song in list">
+    <div class="flex mb-2">
+      <span class="w-16 -ml-16 pr-2 text-right text-3xl font-black hidden sm:block">
+        <span class="text-holly-700" x-show="song.playDelta > 0">&uarr;</span>
+        <span class="text-jolly-700" x-show="song.playDelta < 0">&darr;</span>
+      </span>
+      <div class="relative flex-1">
+        <h3 x-text="song.title" class="text-bold"></h3>
+        <h4 class="text-stone-500 text-sm">
+          <span x-text="song.artist"></span>
+          <small x-show="song.artist_count > 1" class="text-stone-500">
+            + <span x-text="song.artist_count - 1"></span> more
+          </small>
+        </h4>
+      </div>
+      <span class="flex-none ">
+        <span x-text="song.plays"></span>
+        <small class="text-sm">
+          <span class="text-holly-700" x-show="song.playDelta > 0">
+            (+<span x-text="song.playDelta"></span>)
+          </span>
+          <span class="text-jolly-700" x-show="song.playDelta < 0">
+            (<span x-text="song.playDelta"></span>)
+          </span>
+        </small>
+      </span>
+    </div>
+  </template>
+</div>

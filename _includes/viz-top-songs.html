@@ -1,0 +1,40 @@
+
+<div x-data="{showAll: false}">
+  <div class="flex justify-between mb-2 text-stone-500">
+    <span class="underline underline-offset-4">Song</span>
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll">
+      <span x-show="!showAll">Show Top 50</span>
+      <span x-show="showAll">Hide Top 50</span>
+    </a>
+    <span class="underline underline-offset-4">Plays</span>
+  </div>
+
+  <template x-for="(song, index) in list">
+    <div class="flex mb-2" x-show="showAll || index < 5" x-transition>
+      <span class="w-20 -ml-20 pr-2 text-right text-5xl font-black text-stone-300 hidden sm:block tabular-nums tracking-tighter	" x-text="song.simpleRank"></span>
+      <div class="relative flex-1">
+        <h3 x-text="song.title" class="text-bold"></h3>
+        <h4 class="text-stone-500 text-sm">
+          <span x-text="song.artist"></span>
+          <small x-show="song.artist_count > 1" class="text-stone-500">
+            + <span x-text="song.artist_count - 1"></span> more
+          </small>
+        </h4>
+      </div>
+      <div class="text-xs py-1 pr-2 hidden sm:block">
+        <template x-for="p in song.plays">
+          <i class="fa-solid fa-gift odd:text-jolly-700 even:text-holly-700"></i>
+        </template>
+      </div>
+      <span class="flex-none text-right" :class="song.percentOfPlays ? 'w-[7ch]' : 'w-[2ch]'">
+        <span x-text="song.plays"></span>
+        <small x-show="song.percentOfPlays" class="text-stone-500 inline-block w-10 text-left">
+          (<span x-text="song.percentOfPlays"></span>)
+        </small>
+      </span>
+    </div>
+  </template>
+  <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll" x-show="showAll">
+    Hide Top 50
+  </a>
+</div>

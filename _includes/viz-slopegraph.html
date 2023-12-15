@@ -1,0 +1,96 @@
+<div id="slope-graph">
+</div>
+
+<script>
+  const chart = d3.select("#slope-graph").append("svg")
+
+  const slopeElem = document.querySelector("#slope-graph");
+  const resizeObserver = new ResizeObserver((entries) => {
+    const marginTop = 10;
+    const marginLeft = 10;
+    const marginRight = 10;
+    const marginBottom = 10;
+    const padding = 3;
+
+    const width = entries[0].contentBoxSize[0].inlineSize;
+    const height = width * 2;
+
+    chart
+      .attr("viewBox", [0, 0, width, height])
+      .attr("class", "max-w-100 h-auto text-sm");
+
+    const x = d3.scalePoint()
+      .domain([0, 1])
+      .range([marginLeft, width - marginRight])
+      .padding(0.5);
+
+    const y = d3.scaleLinear()
+      .domain(d3.extent(pageData.today.flatMap(d => [d.plays, d.avgCompPlays])))
+      .range([height - marginBottom, marginTop]);
+
+    const line = d3.line()
+      .x((d, i) => x(i))
+      .y(y);
+
+    const formatNumber = y.tickFormat(10);
+
+    // Append the x axis.
+    chart.append("g")
+        .attr("text-anchor", "middle")
+      .selectAll("g")
+      .data([0, 1])
+      .join("g")
+        .attr("transform", (i) => `translate(${x(i)},20)`)
+        .call(g => g.append("text").text((i) => i ? 'Average Day' : 'Today'))
+
+    // Create a line for each song.
+    chart.append("g")
+        .attr("fill", "none")
+        .attr("stroke", "currentColor")
+      .selectAll("path")
+      .data(pageData.today, d => d.song_id)
+      .join("path")
+        .attr("d", (d) => line([d.plays, d.avgCompPlays]));
+
+    // Create a group of labels for each song.
+    chart.append("g")
+      .selectAll("g")
+      .data([0, 1])
+      .join("g")
+        .attr("transform", (i) => `translate(${x(i) + (i ? padding : -padding)},0)`)
+        .attr("text-anchor", (i) => i ? "start" : "end")
+      .selectAll("text")
+      .data((i) => d3.zip(
+        pageData.today.map(i ? (d) => `${formatNumber(d.avgCompPlays)} ${d.title}` : (d) => `${d.title} ${formatNumber(d.plays)}`),
+        dodge(pageData.today.map(d => y(d[i ? 'avgCompPlays' : 'plays'])))))
+      .join("text")
+        .attr("y", ([, y]) => y)
+        .attr("dy", "0.35em")
+        .text(([text]) => text);
+  });
+  resizeObserver.observe(slopeElem);
+
+  function dodge(positions, separation = 12, maxiter = 10, maxerror = 1e-1) {
+    positions = Array.from(positions);
+    let n = positions.length;
+    if (!positions.every(isFinite)) throw new Error("invalid position");
+    if (!(n > 1)) return positions;
+    let index = d3.range(positions.length);
+    for (let iter = 0; iter < maxiter; ++iter) {
+      index.sort((i, j) => d3.ascending(positions[i], positions[j]));
+      let error = 0;
+      for (let i = 1; i < n; ++i) {
+        let delta = positions[index[i]] - positions[index[i - 1]];
+        if (delta < separation) {
+          delta = (separation - delta) / 2;
+          error = Math.max(error, delta);
+          positions[index[i - 1]] -= delta;
+          positions[index[i]] += delta;
+        }
+      }
+      if (error < maxerror) break;
+    }
+    return positions;
+  }
+
+</script>
