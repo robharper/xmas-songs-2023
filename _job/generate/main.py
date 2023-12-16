@@ -9,6 +9,8 @@ from xmas.xmas import generate
 PROJECT_ID = os.getenv("PROJECT_ID")
 TABLE_NAME = f"{PROJECT_ID}.{os.getenv('DATASET_ID')}.{os.getenv('TABLE_ID')}"
 
+GITHUB_REPO = os.getenv("GITHUB_REPO")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 # Register a CloudEvent function with the Functions Framework
 @functions_framework.cloud_event
@@ -32,4 +34,11 @@ def generate_fn(cloud_event):
 
     print(f"Generating summary for {post_date}")
 
-    generate(post_date, PROJECT_ID, TABLE_NAME, dry_run)
+    generate(
+        post_date,
+        project_id=PROJECT_ID,
+        table_name=TABLE_NAME,
+        gh_repo=GITHUB_REPO,
+        gh_token=GITHUB_TOKEN,
+        dry_run=dry_run
+    )
