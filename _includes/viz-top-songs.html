@@ -2,9 +2,9 @@
 <div x-data="{showAll: false}">
   <div class="flex justify-between mb-2 text-stone-500">
     <span class="underline underline-offset-4">Song</span>
-    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll">
-      <span x-show="!showAll">Show Top 50</span>
-      <span x-show="showAll">Hide Top 50</span>
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll" x-show="list.length > 5">
+      <span x-show="!showAll">Show Top <span x-text="list.length"></span></span>
+      <span x-show="showAll">Hide Top <span x-text="list.length"></span></span>
     </a>
     <span class="underline underline-offset-4">Plays</span>
   </div>
@@ -21,20 +21,20 @@
           </small>
         </h4>
       </div>
-      <div class="text-xs py-1 pr-2 hidden sm:block">
-        <template x-for="p in song.plays">
-          <i class="fa-solid fa-gift odd:text-jolly-700 even:text-holly-700"></i>
-        </template>
+      <template x-if="showBars" >
+        <div class="text-xs py-1 pr-2 hidden sm:block">
+          <template x-for="p in song.plays">
+            <i class="fa-solid fa-gift odd:text-jolly-700 even:text-holly-700"></i>
+          </template>
+        </div>
+      </template>
+      <div class="flex-none text-right" :class="song.comparisonNumber ? 'w-[4ch]' : 'w-[2ch]'">
+        <div x-text="song.plays"></div>
+        <div x-show="song.comparisonNumber" class="text-stone-500 text-xs" x-text="song.comparisonNumber"></div>
       </div>
-      <span class="flex-none text-right" :class="song.percentOfPlays ? 'w-[7ch]' : 'w-[2ch]'">
-        <span x-text="song.plays"></span>
-        <small x-show="song.percentOfPlays" class="text-stone-500 inline-block w-10 text-left">
-          (<span x-text="song.percentOfPlays"></span>)
-        </small>
-      </span>
     </div>
   </template>
   <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll" x-show="showAll">
-    Hide Top 50
+    Hide Top <span x-text="list.length"></span>
   </a>
 </div>

@@ -3,21 +3,18 @@ layout: default
 ---
 
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 
 <script>
   const pageData = {{ page.data | jsonify }};
 
   pageData.today.forEach((s, idx) => {
     s.simpleRank = idx + 1;
-    s.avgCompPlays = Math.round(s.avgCompPlays);
   });
-  pageData.all.forEach((s, idx) => {
+  pageData.artist.forEach((s, idx) => {
     s.simpleRank = idx + 1;
   });
 
   const rankChanges = pageData.today.map(song => ({
-    rankChange: song.simpleRank - song.compRank,
     playDelta: song.plays - song.avgCompPlays,
     ...song
   }));
@@ -31,31 +28,48 @@ layout: default
   pageData.today_version.forEach((song, idx) => {
     const todaySong = pageData.today.find(s => s.song_id === song.song_id);
     if (todaySong) {
-      song.percentOfPlays = `${Math.round(song.plays / todaySong.plays * 100)}%`;
+      song.comparisonNumber = `${Math.round(song.plays / todaySong.plays * 100)}%`;
     } else {
-      song.percentOfPlays = `New!`;
+      song.comparisonNumber = `New!`;
     }
     song.simpleRank = idx + 1;
+  })
+
+  pageData.deep_cuts.forEach(song => {
+    song.comparisonNumber = song.all_plays;
   })
 </script>
 
 <main class="mt-12">
   <header class="max-w-prose mx-auto mb-8"></section>
-    <h1 class="text-3xl font-bold text-snow-700">Christmas Playlist for {{page.date | date: "%A, %B %d"}}</h1>
+    <h1 class="text-3xl font-bold text-snow-700">
+      <i class="fa-solid fa-gifts text-jolly-700"></i>
+      Christmas Playlist for {{page.date | date: "%A, %b %-d"}}
+    </h1>
   </header>
 
-  <section x-data="{list: pageData.today}" class="max-w-prose mx-auto mb-8">
-    <h1 class="text-xl font-black mb-2">{{page.date | date: "%A"}}'s Top Songs</h1>
+  <section x-data="pageData" class="max-w-prose mx-auto mb-8">
+    {% include summarize-day.html %}
+  </section>
+
+  <section x-data="{list: pageData.today, showBars: true}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">{{page.date | date: "%A"}}'s Top Christmas Songs</h1>
     <p class="mb-6">
-      Here are the songs with the most plays on {{page.date | date: "%B %d, %Y"}}. Many songs have
+      Here are the songs with the most plays on {{page.date | date: "%B %-d, %Y"}}. Many songs have
       multiple versions by different artists. The most played artist is shown and where there are more
       artists with plays, we indicate this with <small>+2 more</small>.
     </p>
     {% include viz-top-songs.html %}
   </section>
 
+  <div class="text-center my-4">
+    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
+  </div>
+
   <section x-data="{list: pageData.songWinners}" class="max-w-prose mx-auto mb-8">
-    <h1 class="text-lg font-bold mb-2">Biggest Winners</h1>
+    <h1 class="text-lg font-semibold mb-2">Biggest Winners</h1>
     <p class="mb-6">
       The following songs had more plays than you'd hear on a typical day.
       <span class="text-holly-600">Oh what joy...</span>
@@ -63,8 +77,14 @@ layout: default
     {% include viz-changes-songs.html %}
   </section>
 
+  <div class="text-center my-4">
+    <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
+  </div>
+
   <section x-data="{list: pageData.songLosers}" class="max-w-prose mx-auto mb-8">
-    <h1 class="text-lg font-bold mb-2">Biggest Losers</h1>
+    <h1 class="text-lg font-semibold mb-2">Biggest Losers</h1>
     <p class="mb-6">
       A little Christmas spirit is missing today for these songs that had fewer plays than you'd normally hear.
       <span class="text-jolly-600">If only in our dreams...</span>
@@ -72,11 +92,50 @@ layout: default
     {% include viz-changes-songs.html %}
   </section>
 
-  <section x-data="{list: pageData.today_version}" class="max-w-prose mx-auto mb-8">
-    <h1 class="text-lg font-bold mb-2">Top Song Versions</h1>
+  <div class="text-center my-4">
+    <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.today_version, showBars: true}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Top Unique Song Versions</h1>
     <p class="mb-6">
       The top played songs of the day tend to have versions from many different artists. Here are the top
-      unique song versions of the day:
+      unique song versions of the day. The percentage given is the percent of the plays that this version makes
+      up of all plays of that song today.
+    </p>
+    {% include viz-top-songs.html %}
+  </section>
+
+  <div class="text-center my-4">
+    <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.artist, showBars: true}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Top Artists</h1>
+    <p class="mb-6">
+      Today's top played artists are shown below along with the number of different songs
+      they sang today.
+    </p>
+    {% include viz-top-artists.html %}
+  </section>
+
+  <div class="text-center my-4">
+    <i class="fa-solid fa-gifts text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-gifts text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-gifts text-jolly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.deep_cuts, showBars: true}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Deep Cuts</h1>
+    <p class="mb-6">
+      Some Christmas songs are as rare as a perfect snowflake. The following songs were only
+      played once today and are rarely heard at all. The number under the play count represents
+      the total number of plays this song's had so far this year. A "1" here means
+      today is the only time the song has been played! <span class="text-snow-600">Oh, what fun!</span>
     </p>
     {% include viz-top-songs.html %}
   </section>

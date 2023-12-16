@@ -1,0 +1,68 @@
+<p class="mb-4">
+  On this wonderful {{page.date | date: "%A"}}, CHFI played
+  <span class="text-jolly-700 text-lg font-bold" x-text="summary.today.total_plays"></span>
+  Christmas songs. Of those
+  <span x-text="summary.today.total_plays"></span>
+  songs, there were
+  <span class="text-holly-700 text-lg font-bold" x-text="summary.today.version_count"></span>
+  unique songs played by
+  <span class="text-snow-600 text-lg font-bold" x-text="summary.today.artist_count"></span>
+  artists. However, some of those
+  <span x-text="summary.today.version_count"></span>
+  songs were the same song played by different artists. As such, only
+  <span class="text-jolly-700 text-lg font-bold" x-text="summary.today.song_count"></span>
+  different Christmas melodies were heard.
+</p>
+<p class="mb-4">
+  On a typical day, CHFI plays
+  <span class="text-holly-700 text-lg font-bold" x-text="summary.all.average_plays"></span>
+  songs for your holiday enjoyment.
+
+  <span x-show="summary.today.total_plays > summary.all.average_plays">
+    Today was an
+    <span class="text-holly-700 italic">above average</span>
+    day for Christmas joy.
+  </span>
+  <span x-show="summary.today.total_plays < summary.all.average_plays">
+    We may have heard
+    <span class="text-jolly-700 italic">fewer</span>
+    songs today, but I'm sure the extra ads were great too.
+  </span>
+
+  Today we heard
+  <span class="text-snow-600 text-lg font-bold"><span x-text="Math.round(100 * summary.today.song_count / summary.all.song_count)"></span>%</span>
+  of all Christmas melodies played this year,
+  <span class="text-jolly-700 text-lg font-bold"><span x-text="Math.round(100 * summary.today.version_count / summary.all.version_count)"></span>%</span>
+  of unique song versions, and
+  <span class="text-holly-700 text-lg font-bold"><span x-text="Math.round(100 * summary.today.artist_count / summary.all.artist_count)"></span>%</span>
+  of all played artists.
+</p>
+<p class="mb-4">
+  Today's top song was
+  "<span class="text-jolly-700 text-lg font-bold" x-text="today[0].title"></span>"
+  played by
+  <span x-show="today[0].artist_count > 1">
+    <span class="text-holly-700 text-lg font-bold" x-text="today[0].artist_count"></span> different artists.
+  </span>
+  <span x-show="today[0].artist_count === 1">
+    <span class="text-holly-700 text-lg font-bold" x-text="today[0].artist"></span>.
+  </span>
+
+  The most played unique version of a Christmas song today was
+  "<span class="text-snow-600 text-lg font-bold" x-text="today_version[0].title"></span>"
+  by
+  <span class="text-jolly-700 text-lg font-bold" x-text="today_version[0].artist"></span>.
+
+  Today's most-played artist was
+  <span class="text-holly-700 text-lg font-bold" x-text="artist[0].artist"></span> with
+  <span class="text-jolly-700 text-lg font-bold" x-text="artist[0].plays"></span> plays over
+  <span x-show="artist[0].song_count > 1">
+    <span class="text-snow-600 text-lg font-bold" x-text="artist[0].song_count"></span>
+    songs.
+  </span>
+  <span x-show="artist[0].song_count === 1">
+    just
+    <span class="text-snow-600 text-lg font-bold">one</span>
+    song.
+  </span>
+</p>

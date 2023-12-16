@@ -1,0 +1,77 @@
+---
+layout: default
+---
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<script>
+  const pageData = {{ page.data | jsonify }};
+  window.pageData = pageData;
+</script>
+
+<style>
+  ul.presents li:before {
+    font-family: 'FontAwesome';
+    content: '\f06b';
+    margin:0 5px 0 -15px;
+  }
+</style>
+
+<main class="mt-12">
+  <header class="max-w-prose mx-auto mb-8"></section>
+    <h1 class="text-3xl font-bold text-snow-700">
+      <i class="fa-solid fa-gifts text-jolly-700"></i>
+      Christmas Songs of 2023
+    </h1>
+  </header>
+
+  <section x-data="pageData" class="max-w-prose mx-auto mb-8">
+    In this holiday season, CHFI Radio brought to me:
+    <ul class="presents ml-8">
+      <li class="before:text-holly-700">
+        <span class="font-bold text-lg text-snow-700" x-text="summary.all.total_plays"></span> songs a-played
+      </li>
+      <li class="before:text-jolly-700">
+        <span class="font-bold text-lg text-snow-700" x-text="summary.all.version_count"></span> unique tracks a-broadcasting
+      </li>
+      <li class="before:text-holly-700">
+        <span class="font-bold text-lg text-snow-700" x-text="summary.all.artist_count"></span> different artists a-playing
+      </li>
+      <li class="before:text-jolly-700">
+        <span class="font-bold text-lg text-snow-700" x-text="summary.all.song_count"></span> songs a-covered
+      </li>
+    </ul>
+  </section>
+
+  <div class="text-center my-4">
+    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.today, showBars: false}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Top Christmas Songs</h1>
+    <p class="mb-6">
+      Here are the songs with the most plays so far this year. Many songs have
+      multiple versions by different artists. The most played artist is shown and where there are more
+      artists with plays, we indicate this with <small>+2 more</small>.
+    </p>
+    {% include viz-top-songs.html %}
+  </section>
+
+  <div class="text-center my-4">
+    <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.artist, showBars: false}" class="max-w-prose mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Top Artists</h1>
+    <p class="mb-6">
+      This Christmas season's top played artists are shown below along with the number of different songs
+      they sang so far this year.
+    </p>
+    {% include viz-top-artists.html %}
+  </section>
+
+</main>
