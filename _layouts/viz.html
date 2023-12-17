@@ -40,15 +40,35 @@ layout: default
   })
 </script>
 
-<main class="mt-12">
-  <header class="max-w-prose mx-auto mb-8"></section>
-    <h1 class="text-3xl font-bold text-snow-700">
-      <i class="fa-solid fa-gifts text-jolly-700"></i>
-      Christmas Playlist for {{page.date | date: "%A, %b %-d"}}
-    </h1>
+<main class="">
+  <header class="bg-stone-900 text-stone-100 pt-12">
+    <div class=" max-w-prose mx-auto">
+      <h1 class="text-3xl font-bold">
+        <i class="fa-solid fa-gifts text-jolly-700"></i>
+        Christmas Playlist for {{page.date | date: "%A, %b %-d"}}
+      </h1>
+
+      <nav class="flex justify-between mt-6">
+        <div>
+          {% if page.previous.url %}
+          <a class="text-snow-300 hover:underline" href="{{page.previous.url | relative_url }}"><span class="big">&larr;</span><span class="words">Prev</span></a>
+          {% endif %}
+        </div>
+        <div>
+          <a class="text-snow-300 hover:underline" href="{{'/' | relative_url }}">Today</a>
+        </div>
+        <div>
+          {% if page.next.url %}
+          <a class="text-snow-300 hover:underline" href="{{page.next.url | relative_url }}"><span class="words">Next</span><span class="big">&rarr;</span></a>
+          {% endif %}
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <section x-data="pageData" class="max-w-prose mx-auto mb-8">
+  {% include divider.html %}
+
+  <section x-data="pageData" class="max-w-prose mx-auto my-8">
     {% include summarize-day.html %}
   </section>
 
