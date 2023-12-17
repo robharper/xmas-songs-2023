@@ -18,13 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-repository: robharper/the-same-12-songs
+repository: robharper/xmas-songs-2023
 
 title: The Same 12 Songs
 description: >-
   A daily exploration of Christmas songs played on Toronto's All Christmas Radio Station, CHFI 98.1
 baseurl: # the subpath of your site, e.g. /blog
-# url: "http://www.ohmyai.rocks" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://www.robharper.ca/xmas-songs-2023" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
@@ -49,13 +49,6 @@ exclude:
   - _cron
   - _old
   - node_modules
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
