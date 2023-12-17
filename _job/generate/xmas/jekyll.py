@@ -1,9 +1,9 @@
 from yaml import dump
 
 
-def build_page(date, data):
+def build_page(date, data, layout):
     front_matter = {
-        "layout": "viz",
+        "layout": layout,
         "data": data
     }
 
