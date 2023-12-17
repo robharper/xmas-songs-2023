@@ -761,7 +761,7 @@ data:
     rank: 50
     song_id: whatchristmasmeanstomemylove
     title: What Christmas Means to Me My Love
-layout: viz
+layout: home
 
 ---
 
