@@ -10,7 +10,7 @@ def generate(build_date: date, project_id: str, table_name: str, gh_repo: str, g
 
     songs = query_day(client, build_date, table_name)
     post = build_page(build_date, songs)
-    upload(gh_token=gh_token, repo=gh_repo, path=f"_posts/{build_date}-viz.markdown", content=post, dry_run=dry_run)
+    upload(gh_token=gh_token, repo=gh_repo, path=f"_posts/{build_date}-songs.markdown", content=post, dry_run=dry_run)
 
     all_data = query_all(client, table_name)
     all_post = build_page(None, all_data)

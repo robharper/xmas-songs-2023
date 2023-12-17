@@ -230,6 +230,7 @@ def summary(client: Client, where: str, where_global: str, table: str):
 
     days = get_total_days(client, where_global, table=table)
     summary_data['all']['average_plays'] = round(summary_data['all']['total_plays'] / days)
+    summary_data['all']['days'] = round(days)
 
     return summary_data
 
