@@ -1,0 +1,973 @@
+---
+data:
+  artist:
+  - artist: "Michael Bubl\xE9"
+    plays: 17
+    rank: 1
+    song_count: 3
+  - artist: Mariah Carey
+    plays: 15
+    rank: 2
+    song_count: 2
+  - artist: Bing Crosby
+    plays: 15
+    rank: 2
+    song_count: 2
+  - artist: Andy Williams
+    plays: 15
+    rank: 2
+    song_count: 2
+  - artist: Gene Autry
+    plays: 10
+    rank: 5
+    song_count: 2
+  - artist: Burl Ives
+    plays: 10
+    rank: 5
+    song_count: 2
+  - artist: "Jos\xE9 Feliciano"
+    plays: 9
+    rank: 7
+    song_count: 1
+  - artist: Barenaked Ladies
+    plays: 8
+    rank: 8
+    song_count: 3
+  - artist: Wham!
+    plays: 8
+    rank: 8
+    song_count: 1
+  - artist: Frank Sinatra
+    plays: 8
+    rank: 8
+    song_count: 2
+  - artist: Elvis Presley
+    plays: 8
+    rank: 8
+    song_count: 2
+  - artist: Matt Dusk
+    plays: 8
+    rank: 8
+    song_count: 4
+  - artist: Sarah McLachlan
+    plays: 8
+    rank: 8
+    song_count: 4
+  - artist: Paul McCartney
+    plays: 8
+    rank: 8
+    song_count: 1
+  - artist: Jann Arden
+    plays: 7
+    rank: 15
+    song_count: 4
+  - artist: Dean Martin
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: Perry Como
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: The Ronettes
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: Eagles
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: Bobby Helms
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: Nat "King" Cole
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: Brenda Lee
+    plays: 7
+    rank: 15
+    song_count: 1
+  - artist: The Tenors
+    plays: 6
+    rank: 23
+    song_count: 3
+  - artist: Serena Ryder
+    plays: 6
+    rank: 23
+    song_count: 3
+  - artist: Eurythmics
+    plays: 6
+    rank: 23
+    song_count: 1
+  - artist: Walk Off The Earth
+    plays: 5
+    rank: 26
+    song_count: 2
+  - artist: Elton John
+    plays: 5
+    rank: 26
+    song_count: 1
+  - artist: John Mellencamp
+    plays: 5
+    rank: 26
+    song_count: 1
+  - artist: Pentatonix
+    plays: 4
+    rank: 29
+    song_count: 4
+  - artist: Kim Stockwood
+    plays: 4
+    rank: 29
+    song_count: 1
+  - artist: Band Aid
+    plays: 4
+    rank: 29
+    song_count: 1
+  - artist: Jonathan Roy & Corey Hart
+    plays: 4
+    rank: 29
+    song_count: 1
+  - artist: Meaghan Smith
+    plays: 4
+    rank: 29
+    song_count: 1
+  - artist: Ali & Theo
+    plays: 4
+    rank: 29
+    song_count: 1
+  - artist: Rob Thomas & Ingrid Michaelson
+    plays: 4
+    rank: 29
+    song_count: 1
+  - artist: '*NSYNC'
+    plays: 3
+    rank: 36
+    song_count: 2
+  - artist: Tyler Shaw
+    plays: 3
+    rank: 36
+    song_count: 2
+  - artist: Amy Grant
+    plays: 3
+    rank: 36
+    song_count: 3
+  - artist: Bryan Adams
+    plays: 3
+    rank: 36
+    song_count: 1
+  - artist: Madonna
+    plays: 2
+    rank: 40
+    song_count: 1
+  - artist: Bruce Springsteen
+    plays: 2
+    rank: 40
+    song_count: 2
+  - artist: 98 Degrees
+    plays: 2
+    rank: 40
+    song_count: 1
+  - artist: Robert Downey Jr.
+    plays: 2
+    rank: 40
+    song_count: 1
+  - artist: Chris Rea
+    plays: 2
+    rank: 40
+    song_count: 1
+  - artist: The Beach Boys
+    plays: 2
+    rank: 40
+    song_count: 2
+  - artist: Darlene Love
+    plays: 2
+    rank: 40
+    song_count: 1
+  - artist: Christina Aguilera
+    plays: 2
+    rank: 40
+    song_count: 2
+  - artist: Vince Guaraldi Trio
+    plays: 2
+    rank: 40
+    song_count: 2
+  - artist: Paul Young
+    plays: 2
+    rank: 40
+    song_count: 1
+  - artist: Thurl Ravenscroft
+    plays: 2
+    rank: 40
+    song_count: 1
+  deep_cuts:
+  - all_plays: 1
+    artist: Nat King Cole
+    plays: 1
+    song_id: deckthehalls
+    title: Deck The Halls
+  - all_plays: 1
+    artist: Ray Conniff
+    plays: 1
+    song_id: jinglebells
+    title: Jingle Bells
+  - all_plays: 1
+    artist: "C\xE9line Dion"
+    plays: 1
+    song_id: happyxmas
+    title: 'Happy Xmas '
+  - all_plays: 1
+    artist: Elvis Presley
+    plays: 1
+    song_id: silverbells
+    title: Silver Bells
+  - all_plays: 1
+    artist: Jackson 5
+    plays: 1
+    song_id: isawmommykissingsantaclaus
+    title: I Saw Mommy Kissing Santa Claus
+  - all_plays: 2
+    artist: David Bowie & Bing Crosby
+    plays: 1
+    song_id: peaceonearthlittledrummerboy
+    title: Peace on Earth / Little Drummer Boy
+  - all_plays: 2
+    artist: Jackson 5
+    plays: 1
+    song_id: santaclausiscomingtotown
+    title: Santa Claus Is Coming to Town
+  - all_plays: 2
+    artist: Bruce Springsteen
+    plays: 1
+    song_id: santaclausiscomingtotown
+    title: Santa Claus Is Coming to Town
+  - all_plays: 2
+    artist: The Beach Boys
+    plays: 1
+    song_id: santaclausiscomingtotown
+    title: Santa Claus Is Coming to Town
+  - all_plays: 3
+    artist: Johnny Mathis
+    plays: 1
+    song_id: weneedalittlechristmas
+    title: We Need a Little Christmas
+  summary:
+    all:
+      artist_count: 141
+      average_plays: 360
+      days: 27
+      song_count: 119
+      total_plays: 9805
+      version_count: 235
+    today:
+      artist_count: 96
+      song_count: 84
+      total_plays: 352
+      version_count: 133
+  today:
+  - artist: Bing Crosby
+    artist_count: 3
+    avgCompPlays: 17
+    compPlays: 455
+    compRank: 1
+    plays: 16
+    rank: 1
+    song_id: itsbeginningtolookalotlikechristmas
+    title: It's Beginning To Look a Lot Like Christmas
+  - artist: Eurythmics
+    artist_count: 5
+    avgCompPlays: 13
+    compPlays: 356
+    compRank: 2
+    plays: 11
+    rank: 2
+    song_id: winterwonderland
+    title: Winter Wonderland
+  - artist: Bobby Helms
+    artist_count: 3
+    avgCompPlays: 12
+    compPlays: 315
+    compRank: 5
+    plays: 11
+    rank: 2
+    song_id: jinglebellrock
+    title: Jingle Bell Rock
+  - artist: Dean Martin
+    artist_count: 4
+    avgCompPlays: 12
+    compPlays: 327
+    compRank: 3
+    plays: 11
+    rank: 2
+    song_id: letitsnow
+    title: Let It Snow
+  - artist: Andy Williams
+    artist_count: 4
+    avgCompPlays: 12
+    compPlays: 319
+    compRank: 4
+    plays: 11
+    rank: 2
+    song_id: itsthemostwonderfultimeoftheyear
+    title: It's the Most Wonderful Time of the Year
+  - artist: Paul McCartney
+    artist_count: 2
+    avgCompPlays: 8
+    compPlays: 224
+    compRank: 20
+    plays: 10
+    rank: 6
+    song_id: wonderfulchristmastime
+    title: Wonderful Christmastime
+  - artist: Gene Autry
+    artist_count: 2
+    avgCompPlays: 10
+    compPlays: 259
+    compRank: 10
+    plays: 10
+    rank: 6
+    song_id: rudolphtherednosedreindeer
+    title: Rudolph the Red Nosed Reindeer
+  - artist: The Ronettes
+    artist_count: 4
+    avgCompPlays: 11
+    compPlays: 287
+    compRank: 7
+    plays: 10
+    rank: 6
+    song_id: sleighride
+    title: Sleigh Ride
+  - artist: Wham!
+    artist_count: 3
+    avgCompPlays: 11
+    compPlays: 291
+    compRank: 6
+    plays: 10
+    rank: 6
+    song_id: lastchristmas
+    title: Last Christmas
+  - artist: "Jos\xE9 Feliciano"
+    artist_count: 1
+    avgCompPlays: 8
+    compPlays: 228
+    compRank: 17
+    plays: 9
+    rank: 10
+    song_id: feliznavidad
+    title: Feliz Navidad
+  - artist: Mariah Carey
+    artist_count: 2
+    avgCompPlays: 10
+    compPlays: 273
+    compRank: 8
+    plays: 9
+    rank: 10
+    song_id: christmas
+    title: 'Christmas '
+  - artist: Burl Ives
+    artist_count: 1
+    avgCompPlays: 9
+    compPlays: 233
+    compRank: 15
+    plays: 9
+    rank: 10
+    song_id: ahollyjollychristmas
+    title: A Holly Jolly Christmas
+  - artist: "Michael Bubl\xE9"
+    artist_count: 1
+    avgCompPlays: 9
+    compPlays: 254
+    compRank: 11
+    plays: 8
+    rank: 13
+    song_id: haveyourselfamerrylittlechristmas
+    title: Have Yourself a Merry Little Christmas
+  - artist: Frank Sinatra
+    artist_count: 2
+    avgCompPlays: 8
+    compPlays: 226
+    compRank: 18
+    plays: 8
+    rank: 13
+    song_id: jinglebells
+    title: Jingle Bells
+  - artist: Bing Crosby
+    artist_count: 2
+    avgCompPlays: 9
+    compPlays: 250
+    compRank: 12
+    plays: 8
+    rank: 13
+    song_id: whitechristmas
+    title: White Christmas
+  - artist: Eagles
+    artist_count: 2
+    avgCompPlays: 8
+    compPlays: 226
+    compRank: 18
+    plays: 8
+    rank: 13
+    song_id: pleasecomehomeforchristmas
+    title: Please Come Home for Christmas
+  - artist: Mariah Carey
+    artist_count: 1
+    avgCompPlays: 9
+    compPlays: 235
+    compRank: 14
+    plays: 8
+    rank: 13
+    song_id: alliwantforchristmasisyou
+    title: All I Want for Christmas Is You
+  - artist: Nat "King" Cole
+    artist_count: 2
+    avgCompPlays: 9
+    compPlays: 245
+    compRank: 13
+    plays: 8
+    rank: 13
+    song_id: thechristmassong
+    title: The Christmas Song
+  - artist: Brenda Lee
+    artist_count: 2
+    avgCompPlays: 10
+    compPlays: 260
+    compRank: 9
+    plays: 8
+    rank: 13
+    song_id: rockingaroundthechristmastree
+    title: Rocking Around the Christmas Tree
+  - artist: Andy Williams
+    artist_count: 1
+    avgCompPlays: 9
+    compPlays: 232
+    compRank: 16
+    plays: 8
+    rank: 13
+    song_id: happyholidaytheholidayseason
+    title: Happy Holiday/The Holiday Season
+  - artist: Rob Thomas & Ingrid Michaelson
+    artist_count: 2
+    avgCompPlays: 6
+    compPlays: 156
+    compRank: 26
+    plays: 7
+    rank: 21
+    song_id: christmastime
+    title: Christmas Time
+  - artist: Jann Arden
+    artist_count: 3
+    avgCompPlays: 5
+    compPlays: 143
+    compRank: 27
+    plays: 7
+    rank: 21
+    song_id: silverbells
+    title: Silver Bells
+  - artist: Elvis Presley
+    artist_count: 1
+    avgCompPlays: 8
+    compPlays: 218
+    compRank: 22
+    plays: 7
+    rank: 21
+    song_id: bluechristmas
+    title: Blue Christmas
+  - artist: Perry Como
+    artist_count: 1
+    avgCompPlays: 8
+    compPlays: 223
+    compRank: 21
+    plays: 7
+    rank: 21
+    song_id: theresnoplacelikehomefortheholidays
+    title: (There's No Place Like) Home for the Holidays
+  - artist: John Mellencamp
+    artist_count: 2
+    avgCompPlays: 8
+    compPlays: 206
+    compRank: 23
+    plays: 6
+    rank: 25
+    song_id: isawmommykissingsantaclaus
+    title: I Saw Mommy Kissing Santa Claus
+  - artist: Ali & Theo
+    artist_count: 3
+    avgCompPlays: 5
+    compPlays: 126
+    compRank: 31
+    plays: 6
+    rank: 25
+    song_id: littlesaintnick
+    title: Little Saint Nick
+  - artist: "Michael Bubl\xE9"
+    artist_count: 5
+    avgCompPlays: 3
+    compPlays: 88
+    compRank: 41
+    plays: 6
+    rank: 25
+    song_id: santaclausiscomingtotown
+    title: Santa Claus Is Coming To Town
+  - artist: Jonathan Roy & Corey Hart
+    artist_count: 2
+    avgCompPlays: 4
+    compPlays: 99
+    compRank: 37
+    plays: 6
+    rank: 25
+    song_id: drivinghomeforchristmas
+    title: Driving Home For Christmas
+  - artist: Walk Off The Earth
+    artist_count: 2
+    avgCompPlays: 5
+    compPlays: 130
+    compRank: 30
+    plays: 5
+    rank: 29
+    song_id: littledrummerboy
+    title: Little Drummer Boy
+  - artist: Elton John
+    artist_count: 1
+    avgCompPlays: 7
+    compPlays: 203
+    compRank: 24
+    plays: 5
+    rank: 29
+    song_id: stepintochristmas
+    title: Step Into Christmas
+  - artist: Meaghan Smith
+    artist_count: 2
+    avgCompPlays: 4
+    compPlays: 102
+    compRank: 35
+    plays: 5
+    rank: 29
+    song_id: christmastimeishere
+    title: Christmas Time Is Here
+  - artist: Barenaked Ladies
+    artist_count: 2
+    avgCompPlays: 3
+    compPlays: 91
+    compRank: 39
+    plays: 4
+    rank: 32
+    song_id: carolofthebells
+    title: Carol Of The Bells
+  - artist: Kim Stockwood
+    artist_count: 1
+    avgCompPlays: 4
+    compPlays: 102
+    compRank: 35
+    plays: 4
+    rank: 32
+    song_id: itsamarshmallowworld
+    title: It's a Marshmallow World
+  - artist: Paul Young
+    artist_count: 3
+    avgCompPlays: 4
+    compPlays: 111
+    compRank: 32
+    plays: 4
+    rank: 32
+    song_id: whatchristmasmeanstome
+    title: What Christmas Means to Me
+  - artist: Sarah McLachlan
+    artist_count: 2
+    avgCompPlays: 4
+    compPlays: 111
+    compRank: 32
+    plays: 4
+    rank: 32
+    song_id: river
+    title: River
+  - artist: Band Aid
+    artist_count: 1
+    avgCompPlays: 7
+    compPlays: 195
+    compRank: 25
+    plays: 4
+    rank: 32
+    song_id: dotheyknowitschristmas
+    title: Do They Know It's Christmas?
+  - artist: Serena Ryder
+    artist_count: 2
+    avgCompPlays: 5
+    compPlays: 142
+    compRank: 28
+    plays: 3
+    rank: 37
+    song_id: illbehomeforchristmas
+    title: I'll Be Home for Christmas
+  - artist: Barenaked Ladies
+    artist_count: 1
+    avgCompPlays: 2
+    compPlays: 56
+    compRank: 45
+    plays: 3
+    rank: 37
+    song_id: itschristmastime
+    title: It's Christmastime
+  - artist: Sarah Mclachlan
+    artist_count: 2
+    avgCompPlays: 2
+    compPlays: 65
+    compRank: 43
+    plays: 3
+    rank: 37
+    song_id: happyxmas
+    title: Happy Xmas
+  - artist: Tyler Shaw
+    artist_count: 2
+    avgCompPlays: 4
+    compPlays: 98
+    compRank: 38
+    plays: 3
+    rank: 37
+    song_id: christmasalloveragain
+    title: Christmas All Over Again
+  - artist: The Tenors
+    artist_count: 1
+    avgCompPlays: 2
+    compPlays: 47
+    compRank: 47
+    plays: 3
+    rank: 37
+    song_id: whatchristmasmeanstomemylove
+    title: What Christmas Means to Me My Love
+  - artist: Matt Dusk
+    artist_count: 1
+    avgCompPlays: 2
+    compPlays: 59
+    compRank: 44
+    plays: 3
+    rank: 37
+    song_id: happyholiday
+    title: Happy Holiday
+  - artist: Matt Dusk
+    artist_count: 1
+    avgCompPlays: 3
+    compPlays: 90
+    compRank: 40
+    plays: 3
+    rank: 37
+    song_id: coolyule
+    title: Cool Yule
+  - artist: Barenaked Ladies
+    artist_count: 1
+    avgCompPlays: 0
+    compPlays: 7
+    compRank: 94
+    plays: 2
+    rank: 44
+    song_id: greenchristmas
+    title: Green Christmas
+  - artist: '*NSYNC'
+    artist_count: 1
+    avgCompPlays: 1
+    compPlays: 19
+    compRank: 70
+    plays: 2
+    rank: 44
+    song_id: idontwannaspendonemorechristmaswithoutyou
+    title: I Don't Wanna Spend One More Christmas Without You
+  - artist: 98 Degrees
+    artist_count: 1
+    avgCompPlays: 1
+    compPlays: 18
+    compRank: 76
+    plays: 2
+    rank: 44
+    song_id: thisgift
+    title: This Gift
+  - artist: Thurl Ravenscroft
+    artist_count: 1
+    avgCompPlays: 2
+    compPlays: 42
+    compRank: 50
+    plays: 2
+    rank: 44
+    song_id: youreameanonemrgrinch
+    title: You're a Mean One Mr. Grinch
+  - artist: Taylor Swift
+    artist_count: 1
+    avgCompPlays: 1
+    compPlays: 31
+    compRank: 55
+    plays: 2
+    rank: 44
+    song_id: christmastreefarm
+    title: Christmas Tree Farm
+  - artist: Nat King Cole
+    artist_count: 2
+    avgCompPlays: 1
+    compPlays: 19
+    compRank: 70
+    plays: 2
+    rank: 44
+    song_id: deckthehalls
+    title: Deck The Halls
+  - artist: Christina Aguilera
+    artist_count: 2
+    avgCompPlays: 5
+    compPlays: 131
+    compRank: 29
+    plays: 2
+    rank: 44
+    song_id: thischristmas
+    title: This Christmas
+  today_version:
+  - artist: Gene Autry
+    plays: 9
+    rank: 1
+    song_id: rudolphtherednosedreindeer
+    title: Rudolph the Red Nosed Reindeer
+  - artist: Burl Ives
+    plays: 9
+    rank: 1
+    song_id: ahollyjollychristmas
+    title: A Holly Jolly Christmas
+  - artist: "Jos\xE9 Feliciano"
+    plays: 9
+    rank: 1
+    song_id: feliznavidad
+    title: Feliz Navidad
+  - artist: "Michael Bubl\xE9"
+    plays: 8
+    rank: 4
+    song_id: haveyourselfamerrylittlechristmas
+    title: Have Yourself a Merry Little Christmas
+  - artist: Wham!
+    plays: 8
+    rank: 4
+    song_id: lastchristmas
+    title: Last Christmas
+  - artist: Paul McCartney
+    plays: 8
+    rank: 4
+    song_id: wonderfulchristmastime
+    title: Wonderful Christmastime
+  - artist: Bing Crosby
+    plays: 8
+    rank: 4
+    song_id: itsbeginningtolookalotlikechristmas
+    title: It's Beginning To Look a Lot Like Christmas
+  - artist: Andy Williams
+    plays: 8
+    rank: 4
+    song_id: happyholidaytheholidayseason
+    title: Happy Holiday/The Holiday Season
+  - artist: Mariah Carey
+    plays: 8
+    rank: 4
+    song_id: alliwantforchristmasisyou
+    title: All I Want for Christmas Is You
+  - artist: Mariah Carey
+    plays: 7
+    rank: 10
+    song_id: christmas
+    title: 'Christmas '
+  - artist: Frank Sinatra
+    plays: 7
+    rank: 10
+    song_id: jinglebells
+    title: Jingle Bells
+  - artist: Nat "King" Cole
+    plays: 7
+    rank: 10
+    song_id: thechristmassong
+    title: The Christmas Song
+  - artist: Elvis Presley
+    plays: 7
+    rank: 10
+    song_id: bluechristmas
+    title: Blue Christmas
+  - artist: Bing Crosby
+    plays: 7
+    rank: 10
+    song_id: whitechristmas
+    title: White Christmas
+  - artist: The Ronettes
+    plays: 7
+    rank: 10
+    song_id: sleighride
+    title: Sleigh Ride
+  - artist: "Michael Bubl\xE9"
+    plays: 7
+    rank: 10
+    song_id: itsbeginningtolookalotlikechristmas
+    title: It's Beginning To Look a Lot Like Christmas
+  - artist: Bobby Helms
+    plays: 7
+    rank: 10
+    song_id: jinglebellrock
+    title: Jingle Bell Rock
+  - artist: Perry Como
+    plays: 7
+    rank: 10
+    song_id: theresnoplacelikehomefortheholidays
+    title: (There's No Place Like) Home for the Holidays
+  - artist: Dean Martin
+    plays: 7
+    rank: 10
+    song_id: letitsnow
+    title: Let It Snow
+  - artist: Brenda Lee
+    plays: 7
+    rank: 10
+    song_id: rockingaroundthechristmastree
+    title: Rocking Around the Christmas Tree
+  - artist: Eagles
+    plays: 7
+    rank: 10
+    song_id: pleasecomehomeforchristmas
+    title: Please Come Home for Christmas
+  - artist: Andy Williams
+    plays: 7
+    rank: 10
+    song_id: itsthemostwonderfultimeoftheyear
+    title: It's the Most Wonderful Time of the Year
+  - artist: Eurythmics
+    plays: 6
+    rank: 23
+    song_id: winterwonderland
+    title: Winter Wonderland
+  - artist: John Mellencamp
+    plays: 5
+    rank: 24
+    song_id: isawmommykissingsantaclaus
+    title: I Saw Mommy Kissing Santa Claus
+  - artist: Elton John
+    plays: 5
+    rank: 24
+    song_id: stepintochristmas
+    title: Step Into Christmas
+  - artist: Jonathan Roy & Corey Hart
+    plays: 4
+    rank: 26
+    song_id: drivinghomeforchristmas
+    title: Driving Home For Christmas
+  - artist: Band Aid
+    plays: 4
+    rank: 26
+    song_id: dotheyknowitschristmas
+    title: Do They Know It's Christmas?
+  - artist: Rob Thomas & Ingrid Michaelson
+    plays: 4
+    rank: 26
+    song_id: christmastime
+    title: Christmas Time
+  - artist: Ali & Theo
+    plays: 4
+    rank: 26
+    song_id: littlesaintnick
+    title: Little Saint Nick
+  - artist: Kim Stockwood
+    plays: 4
+    rank: 26
+    song_id: itsamarshmallowworld
+    title: It's a Marshmallow World
+  - artist: Meaghan Smith
+    plays: 4
+    rank: 26
+    song_id: christmastimeishere
+    title: Christmas Time Is Here
+  - artist: Jann Arden
+    plays: 3
+    rank: 32
+    song_id: silverbells
+    title: Silver Bells
+  - artist: Matt Dusk
+    plays: 3
+    rank: 32
+    song_id: coolyule
+    title: Cool Yule
+  - artist: Serena Ryder
+    plays: 3
+    rank: 32
+    song_id: jinglebellrock
+    title: Jingle Bell Rock
+  - artist: Sarah McLachlan
+    plays: 3
+    rank: 32
+    song_id: silverbells
+    title: Silver Bells
+  - artist: Bryan Adams
+    plays: 3
+    rank: 32
+    song_id: christmastime
+    title: Christmas Time
+  - artist: Walk Off The Earth
+    plays: 3
+    rank: 32
+    song_id: littledrummerboy
+    title: Little Drummer Boy
+  - artist: The Tenors
+    plays: 3
+    rank: 32
+    song_id: whatchristmasmeanstomemylove
+    title: What Christmas Means to Me My Love
+  - artist: Matt Dusk
+    plays: 3
+    rank: 32
+    song_id: happyholiday
+    title: Happy Holiday
+  - artist: Barenaked Ladies
+    plays: 3
+    rank: 32
+    song_id: carolofthebells
+    title: Carol of the Bells
+  - artist: Barenaked Ladies
+    plays: 3
+    rank: 32
+    song_id: itschristmastime
+    title: It's Christmastime
+  - artist: Walk Off The Earth
+    plays: 2
+    rank: 42
+    song_id: wonderfulchristmastime
+    title: Wonderful Christmastime
+  - artist: Paul Young
+    plays: 2
+    rank: 42
+    song_id: whatchristmasmeanstome
+    title: What Christmas Means to Me
+  - artist: Madonna
+    plays: 2
+    rank: 42
+    song_id: santababy
+    title: Santa Baby
+  - artist: The Tenors
+    plays: 2
+    rank: 42
+    song_id: whenwearetogether
+    title: When We Are Together
+  - artist: Sarah McLachlan
+    plays: 2
+    rank: 42
+    song_id: winterwonderland
+    title: Winter Wonderland
+  - artist: Robert Downey Jr.
+    plays: 2
+    rank: 42
+    song_id: river
+    title: River
+  - artist: Jimmy Durante
+    plays: 2
+    rank: 42
+    song_id: frostythesnowman
+    title: Frosty The Snowman
+  - artist: Jann Arden
+    plays: 2
+    rank: 42
+    song_id: itsthemostwonderfultimeoftheyear
+    title: It's the Most Wonderful Time of the Year
+  - artist: Chris Rea
+    plays: 2
+    rank: 42
+    song_id: drivinghomeforchristmas
+    title: Driving Home For Christmas
+layout: viz
+
+---
+
