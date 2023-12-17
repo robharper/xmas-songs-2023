@@ -17,37 +17,60 @@ layout: default
   }
 </style>
 
-<main class="mt-12">
-  <header class="max-w-prose mx-auto mb-8"></section>
-    <h1 class="text-3xl font-bold text-snow-700">
+<main class="bg-stone-100">
+<section class="bg-stone-900 text-stone-100 p-6 pt-12">
+  <header class="max-w-prose mx-auto mb-8">
+    <h1 class="text-2xl sm:text-4xl font-bold">
       <i class="fa-solid fa-gifts text-jolly-700"></i>
       Christmas Songs of 2023
     </h1>
   </header>
 
   <section x-data="pageData" class="max-w-prose mx-auto mb-8">
-    In this holiday season, CHFI Radio brought to me:
-    <ul class="presents ml-8">
-      <li class="before:text-holly-700">
-        <span class="font-bold text-lg text-snow-700" x-text="summary.all.total_plays"></span> songs a-played
+    <p class="mb-4">
+      In this holiday season, CHFI Radio brought to me:
+    </p>
+    <ul class="grid grid-cols-2 gap-4 text-center leading-5">
+      <li>
+        <h3 class="font-black text-4xl sm:text-7xl mb-2 text-holly-500" x-text="summary.all.total_days"></h3>
+        <p>days of joy</p>
+        <small class="text-stone-400">Christmas music started playing on Monday, Nov 20 at 8:34:12 AM EST</small>
       </li>
-      <li class="before:text-jolly-700">
-        <span class="font-bold text-lg text-snow-700" x-text="summary.all.version_count"></span> unique tracks a-broadcasting
+      <li>
+        <h3 class="font-black text-4xl sm:text-7xl mb-2 text-jolly-500" x-text="summary.all.average_plays"></h3>
+        <p>songs each day</p>
+        <small class="text-stone-400">And at least as many ads</small>
       </li>
-      <li class="before:text-holly-700">
-        <span class="font-bold text-lg text-snow-700" x-text="summary.all.artist_count"></span> different artists a-playing
+      <li>
+        <h3 class="font-black text-4xl sm:text-7xl mb-2 text-snow-400" x-text="summary.all.total_plays"></h3>
+        <p>songs played</p>
+        <small class="text-stone-400">That's a lot of joy to the world</small>
       </li>
-      <li class="before:text-jolly-700">
-        <span class="font-bold text-lg text-snow-700" x-text="summary.all.song_count"></span> songs a-covered
+      <li>
+        <h3 class="font-black text-4xl sm:text-7xl mb-2 text-holly-500" x-text="summary.all.version_count"></h3>
+        <p>unique songs</p>
+        <small class="text-stone-400">A unique song is a version of a song by a specific artist</small>
+      </li>
+      <li>
+        <h3 class="font-black text-4xl sm:text-7xl mb-2 text-jolly-500" x-text="summary.all.artist_count"></h3>
+        <p>artists singing</p>
+        <small class="text-stone-400">On an average day, about half of these artists get play time</small>
+      </li>
+      <li>
+        <h3 class="font-black text-4xl sm:text-7xl mb-2 text-snow-400" x-text="summary.all.song_count"></h3>
+        <p>different tunes</p>
+        <small class="text-stone-400">Many artists cover the same song - this is a measure of unique melodies</small>
       </li>
     </ul>
   </section>
-
-  <div class="text-center my-4">
-    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
-    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
-    <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
-  </div>
+</section>
+<svg class="bg-stone-100 stoke-none" width="100%" height="80" viewBox="1 1 175 40" preserveAspectRatio="none">
+  <g transform="translate(-18.298844,-77.973964)">
+      <path style="fill:#cc231e;" d="M 31.615583,90.351641 H 198.56499 v 26.901969 c 0,0 -32.03411,-14.237983 -59.62682,-12.72484 -22.34188,1.2252 -54.779359,9.72634 -54.779359,9.72634 0,0 -22.029534,3.62882 -34.471238,-1.88988 -12.441702,-5.51871 -11.67199,-22.013589 -11.67199,-22.013589 z" />
+      <path style="fill:#1c1917;" d="M 18.441597,78.106256 H 198.58126 v 39.288614 c 0,0 -43.10672,-27.825245 -73.47599,-19.687823 -30.369264,8.137423 -46.832208,12.548653 -46.832208,12.548653 0,0 -32.775418,8.05972 -46.735258,0 C 17.577964,102.19598 18.441597,78.106256 18.441597,78.106256 Z" />
+  </g>
+</svg>
+<section class="mt-8 p-6 bg-stone-100 text-stone-900">
 
   <section x-data="{list: pageData.today, showBars: false}" class="max-w-prose mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Christmas Songs</h1>
@@ -69,9 +92,9 @@ layout: default
     <h1 class="text-xl font-black mb-2">Top Artists</h1>
     <p class="mb-6">
       This Christmas season's top played artists are shown below along with the number of different songs
-      they sang so far this year.
+      they sang so far this year. <span class="text-jolly-700 text-lg font-bold" x-text="pageData.artist[0].artist"></span>, wow.
     </p>
     {% include viz-top-artists.html %}
   </section>
-
+</section>
 </main>
