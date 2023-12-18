@@ -10,7 +10,17 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <title>The Same 12 Songs - {{ page.date | date: "%Y-%m-%d" }}</title>
+    {% if page.date %}
+      <title>The Same 12 Songs - {{ page.date | date: "%Y-%m-%d" }}</title>
+    {% else %}
+      <title>The Same 12 Songs</title>
+    {% endif %}
+
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
+
+    <meta property="og:type"        content="article" />
+    <meta property="og:title"       content="The Same 12 Songs - Exploring Christmas Music of 2023" />
+    <meta property="og:description" content="How often is 'Winter Wonderland' played every day on Toronto's All Christmas radio station, CHFI. Find out!" />
   </head>
   <body class="leading-7 bg-stone-100">
     {{ content }}
