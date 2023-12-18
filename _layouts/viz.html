@@ -40,24 +40,24 @@ layout: default
 
 <main class="">
   <header class="bg-stone-900 text-stone-100 pt-12">
-    <div class=" max-w-prose mx-auto">
+    <div class=" max-w-prose mx-6 sm:mx-auto">
       <h1 class="text-3xl font-bold">
         <i class="fa-solid fa-gifts text-jolly-700"></i>
         Christmas Playlist for {{page.date | date: "%A, %b %-d"}}
       </h1>
 
-      <nav class="flex justify-between mt-6">
+      <nav class="grid grid-cols-3 w-100 mt-6">
         <div>
           {% if page.previous.url %}
-          <a class="text-snow-300 hover:underline" href="{{page.previous.url | relative_url }}"><span class="big">&larr;</span><span class="words">Prev</span></a>
+          <a class="text-snow-300 hover:underline" href="{{page.previous.url | relative_url }}"><span class="big">&larr;</span><span class="words">Day Before</span></a>
           {% endif %}
         </div>
-        <div>
+        <div class="text-center">
           <a class="text-snow-300 hover:underline" href="{{'/' | relative_url }}">Home</a>
         </div>
         <div>
           {% if page.next.url %}
-          <a class="text-snow-300 hover:underline" href="{{page.next.url | relative_url }}"><span class="words">Next</span><span class="big">&rarr;</span></a>
+          <a class="text-snow-300 hover:underline" href="{{page.next.url | relative_url }}"><span class="words">Day After</span><span class="big">&rarr;</span></a>
           {% endif %}
         </div>
       </nav>
@@ -66,11 +66,11 @@ layout: default
 
   {% include divider.html %}
 
-  <section x-data="pageData" class="max-w-prose mx-auto my-8">
+  <section x-data="pageData" class="max-w-prose mx-6 sm:mx-auto my-8">
     {% include summarize-day.html %}
   </section>
 
-  <section x-data="{list: pageData.today, showBars: true}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.today, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">{{page.date | date: "%A"}}'s Top Christmas Songs</h1>
     <p class="mb-6">
       Here are the songs with the most plays on {{page.date | date: "%B %-d, %Y"}}. Many songs have
@@ -86,7 +86,7 @@ layout: default
     <i class="fa-solid fa-candy-cane text-jolly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.songWinners}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.songWinners}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-lg font-semibold mb-2">Biggest Winners</h1>
     <p class="mb-6">
       The following songs had more plays than you'd hear on a typical day.
@@ -101,7 +101,7 @@ layout: default
     <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.songLosers}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.songLosers}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-lg font-semibold mb-2">Biggest Losers</h1>
     <p class="mb-6">
       A little Christmas spirit is missing today for these songs that had fewer plays than you'd normally hear.
@@ -116,7 +116,7 @@ layout: default
     <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.today_version, showBars: true}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.today_version, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Unique Song Versions</h1>
     <p class="mb-6">
       The top played songs of the day tend to have versions from many different artists. Here are the top
@@ -132,7 +132,7 @@ layout: default
     <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.artist, showBars: true}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.artist, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Artists</h1>
     <p class="mb-6">
       Today's top played artists are shown below along with the number of different songs
@@ -147,7 +147,7 @@ layout: default
     <i class="fa-solid fa-gifts text-jolly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.deep_cuts, showBars: true}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.deep_cuts, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Deep Cuts</h1>
     <p class="mb-6">
       Some Christmas songs are as rare as a perfect snowflake. The following songs were only

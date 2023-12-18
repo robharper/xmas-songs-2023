@@ -16,15 +16,15 @@ layout: default
 </style>
 
 <main class="bg-stone-100">
-<section class="bg-stone-900 text-stone-100 p-6 pt-12">
-  <header class="max-w-prose mx-auto mb-8">
+<section class="bg-stone-900 text-stone-100 pt-12">
+  <header class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-2xl sm:text-4xl font-bold">
       <i class="fa-solid fa-gifts text-jolly-700"></i>
       Christmas Songs of 2023
     </h1>
   </header>
 
-  <section x-data="pageData" class="max-w-prose mx-auto mb-8">
+  <section x-data="pageData" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <p class="mb-4">
       In this holiday season, CHFI Radio brought to me:
     </p>
@@ -62,7 +62,7 @@ layout: default
     </ul>
   </section>
 
-  <section class="max-w-prose mx-auto mt-16">
+  <section class="max-w-prose mx-6 sm:mx-auto mt-16">
     <p class="text-center">
       Explore the data by day, starting with
       <a href="{{ site.baseurl }}{{site.posts.first.url}}" class="text-snow-300 hover:underline">
@@ -74,9 +74,9 @@ layout: default
 
 {% include divider.html %}
 
-<section class="mt-8 p-6 bg-stone-100 text-stone-900">
+<section class="mt-8 bg-stone-100 text-stone-900">
 
-  <section x-data="{list: pageData.today, showBars: false}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.today, showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Christmas Songs</h1>
     <p class="mb-6">
       Here are the songs with the most plays so far this year. Many songs have
@@ -92,7 +92,7 @@ layout: default
     <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.artist, showBars: false}" class="max-w-prose mx-auto mb-8">
+  <section x-data="{list: pageData.artist, showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Artists</h1>
     <p class="mb-6">
       This Christmas season's top played artists are shown below along with the number of different songs

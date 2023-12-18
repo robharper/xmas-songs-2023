@@ -20,6 +20,7 @@ gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas
 # Allow it to run BigQuery jobs
 gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/bigquery.jobUser
 
+# Allow the cloud run service account to pu
 gcloud projects add-iam-policy-binding xmas-scrape --member="serviceAccount:xmas-scraper@xmas-scrape.iam.gserviceaccount.com" --role=roles/eventarc.admin
 
 # Grant publisher access to the default service account for the bucket

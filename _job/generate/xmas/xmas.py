@@ -1,4 +1,3 @@
-from yaml import dump
 from datetime import date
 from google.cloud.bigquery import Client
 from xmas.bigquery import query_day, query_all
