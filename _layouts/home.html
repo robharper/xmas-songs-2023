@@ -5,6 +5,23 @@ layout: default
 <script>
   const pageData = {{ page.data | jsonify }};
   window.pageData = pageData;
+
+  pageData.today.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
+  pageData.artist.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
+
+  pageData.today_version.forEach((song, idx) => {
+    const todaySong = pageData.today.find(s => s.song_id === song.song_id);
+    if (todaySong) {
+      song.comparisonNumber = `${Math.round(song.plays / todaySong.plays * 100)}%`;
+    } else {
+      song.comparisonNumber = `New!`;
+    }
+    song.simpleRank = idx + 1;
+  })
 </script>
 
 <main class="bg-stone-100">
@@ -92,5 +109,23 @@ layout: default
     </p>
     {% include viz-top-artists.html %}
   </section>
+
+  <div class="text-center my-4">
+    <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.today_version, showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Top Unique Song Versions</h1>
+    <p class="mb-6">
+      The top songs tend to have versions from many different artists. Here are the top
+      unique song versions of the season. The percentage given is the percent of the plays that this version makes
+      up of all plays of that tune.
+    </p>
+    {% include viz-top-songs.html %}
+  </section>
+
+
 </section>
 </main>
