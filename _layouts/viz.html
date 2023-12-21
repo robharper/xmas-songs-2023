@@ -70,7 +70,7 @@ layout: default
     {% include summarize-day.html %}
   </section>
 
-  <section x-data="{list: pageData.today, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.today, qualifier: 'Top', showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">{{page.date | date: "%A"}}'s Top Christmas Songs</h1>
     <p class="mb-6">
       Here are the songs with the most plays on {{page.date | date: "%B %-d, %Y"}}. Many songs have
@@ -116,7 +116,7 @@ layout: default
     <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.today_version, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.today_version, qualifier: 'Top', showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Unique Song Versions</h1>
     <p class="mb-6">
       The top played songs of the day tend to have versions from many different artists. Here are the top
@@ -132,7 +132,7 @@ layout: default
     <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.artist, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.artist, qualifier: 'Top', showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Artists</h1>
     <p class="mb-6">
       Today's top played artists are shown below along with the number of different songs
@@ -147,10 +147,10 @@ layout: default
     <i class="fa-solid fa-gifts text-jolly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.deep_cuts, showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.deep_cuts, qualifier: 'Top', showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Deep Cuts</h1>
     <p class="mb-6">
-      Some Christmas songs are as rare as a perfect snowflake. The following songs were only
+      Some Christmas songs are as rare as a perfect snowflake <i class="text-snow-600 text-lg fa-solid fa-snowflake"></i>. The following songs were only
       played once today and are rarely heard at all. The number under the play count represents
       the total number of plays this song's had so far this year. A "1" here means
       today is the only time the song has been played! <span class="text-snow-600">Oh, what fun!</span>

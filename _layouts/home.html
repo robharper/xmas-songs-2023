@@ -85,7 +85,7 @@ layout: default
 
 <section class="mt-8 bg-stone-100 text-stone-900">
 
-  <section x-data="{list: pageData.today, showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.today, qualifier: 'All', showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Christmas Songs</h1>
     <p class="mb-6">
       Here are the songs with the most plays so far this year. Many songs have
@@ -101,7 +101,7 @@ layout: default
     <i class="fa-solid fa-tree text-holly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.artist, showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.artist, qualifier: 'All', showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Artists</h1>
     <p class="mb-6">
       This Christmas season's top played artists are shown below along with the number of different songs
@@ -116,7 +116,7 @@ layout: default
     <i class="fa-solid fa-sleigh text-jolly-600 opacity-30 mx-4"></i>
   </div>
 
-  <section x-data="{list: pageData.today_version, showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+  <section x-data="{list: pageData.today_version, qualifier: 'All', showBars: false}" class="max-w-prose mx-6 sm:mx-auto mb-8">
     <h1 class="text-xl font-black mb-2">Top Unique Song Versions</h1>
     <p class="mb-6">
       The top songs tend to have versions from many different artists. Here are the top
@@ -126,6 +126,20 @@ layout: default
     {% include viz-top-songs.html %}
   </section>
 
+  <div class="text-center my-4">
+    <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
+    <i class="fa-solid fa-holly-berry text-holly-600 opacity-30 mx-4"></i>
+  </div>
+
+  <section x-data="{list: pageData.deep_cuts, qualifier: 'All', showBars: true}" class="max-w-prose mx-6 sm:mx-auto mb-8">
+    <h1 class="text-xl font-black mb-2">Deep Cuts</h1>
+    <p class="mb-6">
+      Some Christmas songs are as rare as a perfect snowflake <i class="text-snow-600 text-lg fa-solid fa-snowflake"></i>. The following songs were only
+      played once all season so far! <span class="text-snow-600">Oh, what fun!</span>
+    </p>
+    {% include viz-top-songs.html %}
+  </section>
 
 </section>
 </main>
