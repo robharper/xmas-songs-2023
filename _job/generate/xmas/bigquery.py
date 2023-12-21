@@ -289,19 +289,25 @@ def query_all(client: Client, table: str) -> dict:
     today_data = ranked_songs(client,
         where_ranks="",
         where_global=None,
-        limit=50,
+        limit=500,
         table=table
     )
 
     today_version_data = ranked_versions(client,
         where="",
-        limit=50,
+        limit=500,
         table=table
     )
 
     artist_data = ranked_artists(client,
         where="",
-        limit=50,
+        limit=500,
+        table=table
+    )
+
+    rare = deep_cuts(client,
+        where="",
+        limit=100,
         table=table
     )
 
@@ -310,4 +316,5 @@ def query_all(client: Client, table: str) -> dict:
         "today_version": today_version_data,
         "artist": artist_data,
         "summary": summary_data,
+        "deep_cuts": rare
     }
