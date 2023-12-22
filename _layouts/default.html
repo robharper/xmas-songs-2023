@@ -24,7 +24,10 @@
     <meta name="description"        content="How often is 'Winter Wonderland' played every day on Toronto's All Christmas radio station, CHFI. Find out!">
   </head>
   <body class="leading-7 bg-stone-100">
-    {% include filter-list.html %}
+    <script>
+      {% include data-prep.js %}
+      {% include filter-list.js %}
+    </script>
 
     {{ content }}
   </body>
