@@ -1,15 +1,24 @@
 
-<div x-data="{showAll: false}">
+<div x-data="filterlist(list)">
   <div class="flex justify-between mb-2 text-stone-500">
     <span class="underline underline-offset-4">Song</span>
-    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll" x-show="list.length > 5">
-      <span x-show="!showAll">Show <span x-text="qualifier"></span> <span x-text="list.length"></span></span>
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="toggle" x-show="showShowAll && showAll">
       <span x-show="showAll">Hide <span x-text="qualifier"></span> <span x-text="list.length"></span></span>
     </a>
     <span class="underline underline-offset-4">Plays</span>
   </div>
 
-  <template x-for="(song, index) in list">
+  <form @submit.prevent class="flex mb-2">
+    <input @keyup="filter($event.target.value)" x-ref="search"
+      type="text" placeholder="Search"
+      class="flex-1 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+    <a @click="clear"
+      class="flex-none inline-block align-middle ml-2 text-snow-500 hover:underline hover:cursor-pointer">
+      <small>Clear</small>
+    </a>
+  </form>
+
+  <template x-for="(song, index) in filteredList">
     <div class="flex mb-2" x-show="showAll || index < 5" x-transition>
       <span class="w-32 -ml-32 pr-2 text-right text-5xl font-black text-stone-300 hidden sm:block tabular-nums tracking-tighter	" x-text="song.simpleRank"></span>
       <div class="relative flex-1">
@@ -28,13 +37,14 @@
           </template>
         </div>
       </template>
-      <div class="flex-none text-right" :class="song.comparisonNumber ? 'w-[4ch]' : 'w-[2ch]'">
+      <div class="flex-none text-right" :class="song.comparisonNumber ? 'w-[4ch]' : 'w-[3ch]'">
         <div x-text="song.plays"></div>
         <div x-show="song.comparisonNumber" class="text-stone-500 text-xs" x-text="song.comparisonNumber"></div>
       </div>
     </div>
   </template>
-  <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="showAll = !showAll" x-show="showAll">
-    Hide <span x-text="qualifier"></span> <span x-text="list.length"></span>
+  <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="toggle" x-show="showShowAll">
+    <span x-show="!showAll">Show <span x-text="qualifier"></span> <span x-text="list.length"></span></span>
+    <span x-show="showAll">Hide <span x-text="qualifier"></span> <span x-text="list.length"></span></span>
   </a>
 </div>
