@@ -20,7 +20,10 @@
 
   <template x-for="(song, index) in filteredList">
     <div class="flex mb-2" x-show="showAll || index < 5" x-transition>
-      <span class="w-32 -ml-32 pr-2 text-right text-5xl font-black text-stone-300 hidden sm:block tabular-nums tracking-tighter	" x-text="song.simpleRank"></span>
+      <span class="w-9 sm:w-32 -ml-4 sm:-ml-32 sm:text-5xl pr-2 text-right font-black text-stone-300 tabular-nums tracking-tighter	"
+        x-text="song.simpleRank"
+        x-show="song.simpleRank != null">
+      </span>
       <div class="relative flex-1">
         <h3 x-text="song.title" class="text-bold"></h3>
         <h4 class="text-stone-500 text-sm">

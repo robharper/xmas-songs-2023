@@ -1,0 +1,67 @@
+
+<div x-data="filterlist(list)">
+  <div class="flex justify-between mb-2 text-stone-500">
+    <span class="underline underline-offset-4">Artist</span>
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="toggle" x-show="showShowAll && showAll">
+      Show only top 5
+    </a>
+    <span class="underline underline-offset-4">Plays</span>
+  </div>
+
+  <form @submit.prevent class="flex mb-2">
+    <input @keyup="filter($event.target.value)" x-ref="search"
+      type="text" placeholder="Search"
+      class="flex-1 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+    <a @click="clear"
+      class="flex-none inline-block align-middle ml-2 text-snow-500 hover:underline hover:cursor-pointer">
+      <small>Clear</small>
+    </a>
+  </form>
+
+  <template x-for="(artist, index) in filteredList">
+    <div x-data="{expanded: false}" class="mb-2" x-show="showAll || index < 5" x-transition>
+      <div class="flex">
+        <span class="w-9 sm:w-32 -ml-4 sm:-ml-32 sm:text-5xl pr-2 text-right font-black text-stone-300 tabular-nums tracking-tighter	"
+          x-text="artist.simpleRank">
+        </span>
+        <div class="relative flex-1">
+          <h3 x-text="artist.artist" class="text-bold"></h3>
+          <h4 class="text-stone-500 text-sm">
+            <a x-show="artist.songs.length > 1" @click="expanded = !expanded" class="text-snow-500 hover:underline hover:cursor-pointer">
+              <small x-show="!expanded">
+                <span x-text="artist.songs.length"></span> songs
+              </small>
+              <small x-show="expanded">
+                Hide
+              </small>
+            </a>
+          </h4>
+        </div>
+        <template x-if="showBars">
+          <div class="text-xs py-1 pr-2 hidden sm:block">
+            <template x-for="p in artist.plays">
+              <i class="fa-solid fa-gift odd:text-jolly-700 even:text-holly-700"></i>
+            </template>
+          </div>
+        </template>
+        <span class="flex-none text-right w-[3ch]">
+          <span x-text="artist.plays"></span>
+        </span>
+      </div>
+      <template x-if="expanded">
+        <template x-for="song in artist.songs">
+          <p class="ml-5 sm:ml-0 flex text-stone-500 text-sm">
+            <span class="flex-1" x-text="song.title"></span>
+            <span x-text="song.plays"></span>
+          </p>
+        </template>
+      </template>
+    </div>
+  </template>
+  <p class="text-center">
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="toggle" x-show="showShowAll">
+      <span x-show="!showAll">Show <span x-text="qualifier"></span> <span x-text="list.length"></span></span>
+      <span x-show="showAll">Show only top 5</span></span>
+    </a>
+  </p>
+</div>

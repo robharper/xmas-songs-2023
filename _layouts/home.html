@@ -1,6 +1,45 @@
 ---
 layout: default
 ---
+<script>
+  // Build song_id aggregation
+  pageData.today = Object.entries(
+    Object.groupBy(pageData.today_version, ({ song_id }) => song_id)
+  ).map(([song_id, versions]) => {
+    versions.sort((a, b) => b.plays - a.plays);
+    const exemplar = versions[0];
+    return {
+      song_id,
+      title: exemplar.title,
+      artist: exemplar.artist,
+      versions,
+      plays: versions.reduce((acc, s) => acc + s.plays, 0)
+    }
+  });
+
+  pageData.today.sort((a, b) => b.plays - a.plays);
+  pageData.today.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
+
+  // Build artist aggregation
+  pageData.artist = Object.entries(
+    Object.groupBy(pageData.today_version, ({ artist }) => artist)
+  ).map(([artist, songs]) => {
+    songs.sort((a, b) => b.plays - a.plays);
+    const exemplar = songs[0];
+    return {
+      artist,
+      songs,
+      plays: songs.reduce((acc, s) => acc + s.plays, 0)
+    }
+  });
+
+  pageData.artist.sort((a, b) => b.plays - a.plays);
+  pageData.artist.forEach((s, idx) => {
+    s.simpleRank = idx + 1;
+  });
+</script>
 
 <main class="bg-stone-100">
 <section class="bg-stone-900 text-stone-100 pt-12">
@@ -70,7 +109,7 @@ layout: default
       multiple versions by different artists. The most played artist is shown and where there are more
       artists with plays, we indicate this with <small>+2 more</small>.
     </p>
-    {% include viz-top-songs.html %}
+    {% include viz-top-songs-plus-versions.html %}
   </section>
 
   <div class="text-center my-4">
@@ -85,7 +124,7 @@ layout: default
       This Christmas season's top played artists are shown below along with the number of different songs
       they sang so far this year. <span class="text-jolly-700 text-lg font-bold" x-text="pageData.artist[0].artist"></span>, wow.
     </p>
-    {% include viz-top-artists.html %}
+    {% include viz-top-artists-plus-songs.html %}
   </section>
 
   <div class="text-center my-4">

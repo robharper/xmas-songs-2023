@@ -1,0 +1,62 @@
+
+<div x-data="filterlist(list)">
+  <div class="flex justify-between mb-2 text-stone-500">
+    <span class="underline underline-offset-4">Song</span>
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="toggle" x-show="showShowAll && showAll">
+      Show only top 5
+    </a>
+    <span class="underline underline-offset-4">Plays</span>
+  </div>
+
+  <form @submit.prevent class="flex mb-2">
+    <input @keyup="filter($event.target.value)" x-ref="search"
+      type="text" placeholder="Search"
+      class="flex-1 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+    <a @click="clear"
+      class="flex-none inline-block align-middle ml-2 text-snow-500 hover:underline hover:cursor-pointer">
+      <small>Clear</small>
+    </a>
+  </form>
+
+  <template x-for="(song, index) in filteredList">
+    <div class="mb-2" x-data="{expanded: false}" x-show="showAll || index < 5" x-transition>
+      <div class="flex">
+        <span class="w-9 sm:w-32 -ml-4 sm:-ml-32 sm:text-5xl pr-2 text-right font-black text-stone-300 tabular-nums tracking-tighter	"
+          x-text="song.simpleRank">
+        </span>
+        <div class="relative flex-1">
+          <h3 x-text="song.title" class="text-bold"></h3>
+
+          <h4 class="text-stone-500 text-sm">
+            <span x-show="!expanded" x-text="song.artist"></span>
+            <a x-show="song.versions.length > 1" @click="expanded = !expanded" class="text-snow-500 hover:underline hover:cursor-pointer">
+              <small x-show="!expanded">
+                + <span x-text="song.versions.length - 1"></span> more
+              </small>
+              <small x-show="expanded">
+                Hide
+              </small>
+            </a>
+          </h4>
+        </div>
+        <div class="flex-none text-right" class="w-[3ch]">
+          <div x-text="song.plays"></div>
+        </div>
+      </div>
+      <template x-if="expanded">
+        <template x-for="version in song.versions">
+          <p class="ml-5 sm:ml-0 flex text-stone-500 text-sm">
+            <span class="flex-1" x-text="version.artist"></span>
+            <span x-text="version.plays"></span>
+          </p>
+        </template>
+      </template>
+    </div>
+  </template>
+  <p class="text-center">
+    <a class="text-snow-500 text-sm hover:underline hover:cursor-pointer" @click="toggle" x-show="showShowAll">
+      <span x-show="!showAll">Show <span x-text="qualifier"></span> <span x-text="list.length"></span></span>
+      <span x-show="showAll">Show only top 5</span></span>
+    </a>
+  </p>
+</div>
